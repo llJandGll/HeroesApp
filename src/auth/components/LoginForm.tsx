@@ -30,9 +30,12 @@ export const LoginForm : React.FC= () => {
     onLogin( email, password)
     // console.log(lastpath)
     
-    navigate( lastpath, { 
-      replace: true,
-    })
+    setTimeout(() => {
+      navigate( lastpath, { 
+        replace: true,
+      })
+      
+    }, 150);
   }
 
   return (
