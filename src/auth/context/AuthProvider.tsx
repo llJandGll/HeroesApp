@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from "react"
+import { useReducer } from "react"
 import { AuthContext } from "./AuthContext"
 import { authReducer } from "./authReducer"
 import { AuthState, User } from "../interfaces"
@@ -41,23 +41,18 @@ export const AuthProvider: React.FC<PrivateRouteProps> = ({ children }) => {
 
   const [authState, dispatch] = useReducer(authReducer, initialState, initializeState);
 
-  const onLogin = useCallback((email: string, password: string) => {
+  const onLogin = (email: string, password: string) => {
     const user: User = { email, password };
     
-    try {
       localStorage.setItem('user', JSON.stringify(user));
       
       dispatch({
         type: types.login,
         payload: user
       });
-    } catch (error) {
-      console.error('Error during login:', error);
-    }
-  }, []);
+  };
 
-  const onLogout = useCallback(() => {
-    try {
+  const onLogout = () => {
       localStorage.removeItem('user');
       
       dispatch({
@@ -67,10 +62,8 @@ export const AuthProvider: React.FC<PrivateRouteProps> = ({ children }) => {
           password: ''
         }
       });
-    } catch (error) {
-      console.error('Error during logout:', error);
-    }
-  }, []);
+
+  };
 
   return (
     <AuthContext.Provider value={{
