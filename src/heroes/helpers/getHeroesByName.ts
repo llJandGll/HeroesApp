@@ -6,7 +6,7 @@ export const getHeroesByName = ( superhero : string ) => {
   superhero = superhero.toLowerCase().trim();
 
   if ( !superhero ) {
-    console.log( 'superhero no encontrado con', superhero );
+    // console.log( 'superhero no encontrado con', superhero );
     return [];
   }
 

@@ -16,7 +16,6 @@ export const SearchPage = () => {
   
   const heroes : Marvel[] | Dc[] =  getHeroesByName( q as string );
 
-  console.log(heroes)
 
   return (
     <div className="search">

@@ -6,7 +6,7 @@ import { useForm } from '../hooks/useForm'
 
 export const LoginForm : React.FC= () => {
 
-  console.log('this components fires once')
+  // console.log('this components fires once')
 
   const navigate = useNavigate()
   const { onLogin,  } = useContext( AuthContext )
@@ -28,7 +28,7 @@ export const LoginForm : React.FC= () => {
     
     const lastpath = localStorage.getItem('lastPath') || '/';
     onLogin( email, password)
-    console.log(lastpath)
+    // console.log(lastpath)
     
     navigate( lastpath, { 
       replace: true,
